@@ -3,10 +3,10 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
 import { Survey, Question } from '@appmodels';
-import { questions, sqOptions, surveys } from './fake-db';
+import { questions, sqOptions, surveys } from './mock-db';
 
 @Injectable()
-export class FakeBackendInterceptor implements HttpInterceptor {
+export class MockBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
@@ -59,9 +59,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 }
 
-export const fakeBackendProvider = {
+export const mockBackendProvider = {
     // use fake backend in place of Http service for backend-less development
     provide: HTTP_INTERCEPTORS,
-    useClass: FakeBackendInterceptor,
+    useClass: MockBackendInterceptor,
     multi: true
 };

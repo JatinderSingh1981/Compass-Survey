@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // used to create fake backend
-import { fakeBackendProvider, ErrorInterceptor } from '@apphelpers';
+import { mockBackendProvider, ErrorInterceptor } from '@apphelpers';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -33,7 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        mockBackendProvider
     ],
     bootstrap: [AppComponent]
 })

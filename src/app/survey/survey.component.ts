@@ -19,6 +19,10 @@ export class SurveyComponent implements OnInit, OnDestroy {
         this.headerTitleService.setTitle(this.pageTitle);
         this.getSurveys();
     }
+    
+    //Instead of using the publisher and subscriber method, 
+    //I can simply use promise which gives me result just 1 time and that's it. 
+    //No overhead of maintaining the subscription and worry about memory leaks
     ngOnDestroy() {
         // unsubscribe to avoid memory leaks
         this.subscriptions.unsubscribe();

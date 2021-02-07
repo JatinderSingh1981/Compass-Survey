@@ -9,8 +9,9 @@ const routes: Routes = [
     //{ path: ':id/:name', component: QuestionListComponent },
 
     //Instead of the following, I can easily uncomment the above line
-    //This was not required here since we just have 2 modules 
+    //This was not required here since we just have 2 components 
     //so its not going to make any major impact on the application
+    //I am assuming that in future when this application grows, we will use the lazy loading
     { path: ':id/:name', loadChildren: surveyModule },
 
     // otherwise redirect to home
