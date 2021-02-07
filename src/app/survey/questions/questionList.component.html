@@ -1,0 +1,25 @@
+﻿<div class="container-fluid my-4">
+    <!-- <div class="col-md-12 px-2"> -->
+    <h4>{{name}}</h4>
+    <div *ngFor="let question of questions; let i=index;">
+        <div class="border border-dark rounded my-4">
+            <question-component [selectedQuestion]="question" [title]="'Question '+(i+1)"></question-component>
+            <div *ngFor="let opt of question.sqOptions">
+                <div class="p-2" *ngIf="question.questionType === QuestionTypeEnum.MultipleChoice">
+                    <multiOption-component [selectedOption]="opt"></multiOption-component>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="!questions" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+    </div>
+    <div class="border-top border-dark px-4 py-2">
+        <div class="float-right">
+            <a routerLink=".." class="btn btn-primary mr-1">Back</a>
+        </div>
+
+    </div>
+    <!-- </div> -->
+</div>
