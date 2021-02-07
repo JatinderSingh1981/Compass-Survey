@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Mock backend API with READ routes
 The example app runs with a mock backend api by default to enable it to run completely in the browser without a real api, 
-the mock api contains routes for Survey, Questions and Answers Read operations and it uses mock-db.ts to get data. 
+the mock api contains routes for Survey, Questions and Options Read operations and it uses mock-db.ts to get data. 
 To disable the mock backend you just have to remove mock backend provider from the app.module.ts file
 
 ## Run the Compass Survey app Locally
