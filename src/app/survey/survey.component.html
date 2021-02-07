@@ -1,12 +1,13 @@
 ﻿<div class="container-fluid my-4">
-    <!-- I can create a sub-header component for this sub-heading but because its a sample application, sub-header component is not required -->
+    <!-- I can create a sub-header component for this sub-heading 
+        but because its a sample application, sub-header component is not required for now-->
     <h4>Compass Surveys</h4>
-    <div *ngFor="let survey of surveys">
+    <div *ngFor="let survey of surveys | async">
         <div class="py-2">
             <a routerLink="/{{survey.id}}/{{survey.name}}" class="btn w-100 btn-secondary mr-1">{{survey.name}} </a>
         </div>
     </div>
-    <div *ngIf="!surveys" class="text-center" class="col-md-12">
+    <div *ngIf="!surveys" class="text-center">
         <span class="spinner-border spinner-border-lg align-center"></span>
     </div>
 </div>

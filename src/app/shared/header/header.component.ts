@@ -1,22 +1,24 @@
-﻿import { Component, Input, OnInit } from '@angular/core';
-import { HeaderTitleService } from '@app/_services/header.service';
+﻿import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { HeaderTitleService } from 'appservices';
+import { Subscription } from 'rxjs';
 
 @Component({ selector: 'app-header', templateUrl: 'header.component.html' })
-export class HeaderComponent implements OnInit {
-    // private _title!: string;
+export class HeaderComponent implements OnInit, OnDestroy {
+  title!: string;
+  titleSubscription!: Subscription;
 
-    title!: string;
+  constructor(private headerTitleService: HeaderTitleService) { }
 
-    // @Input()
-    // set title(selected: string) { this._title = selected; }
-    // get title(): string { return this._title; }
+  ngOnInit() {
+    this.titleSubscription = this.headerTitleService.title
+      .subscribe(updatedTitle => {
+        this.title = updatedTitle;
+      });
+  }
 
+  ngOnDestroy() {
+    // unsubscribe to avoid memory leaks
+    this.titleSubscription.unsubscribe();
 
-    constructor(private headerTitleService: HeaderTitleService) {}
-
-    ngOnInit() {
-        this.headerTitleService.title.subscribe(updatedTitle => {
-          this.title = updatedTitle;
-        });
-      }
+  }
 }

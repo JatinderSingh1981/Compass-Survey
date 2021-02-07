@@ -1,25 +1,33 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-
-import { HeaderTitleService, SurveyService } from '@services/index';
-import { Survey } from '@models/index';
+import { HeaderTitleService, SurveyService } from 'appservices';
+import { Survey } from 'appmodels';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({ templateUrl: 'survey.component.html' })
-export class SurveyComponent implements OnInit {
-    surveys!: Survey[];
+export class SurveyComponent implements OnInit, OnDestroy {
+    readonly pageTitle: string = 'Surveys Page';
+    surveys!: Observable<Survey[]>;
+    private subscriptions: Subscription;
 
-    constructor(private surveyService: SurveyService, private headerTitleService: HeaderTitleService) { }
-
-    ngOnInit() {
-        //this.alertService.success('Surveys Page', { keepAfterRouteChange: true, autoClose: false });
-        this.headerTitleService.setTitle('Surveys Page');
-        this.getSurveys();
+    constructor(private surveyService: SurveyService,
+        private headerTitleService: HeaderTitleService) {
+        this.subscriptions = new Subscription();
     }
 
+    ngOnInit() {
+        this.headerTitleService.setTitle(this.pageTitle);
+        this.getSurveys();
+    }
+    ngOnDestroy() {
+        // unsubscribe to avoid memory leaks
+        this.subscriptions.unsubscribe();
+
+    }
     getSurveys() {
-        this.surveyService.getAll()
+        this.subscriptions.add(this.surveyService.getAll()
             .pipe(first())
-            .subscribe(users => this.surveys = users);
+            .subscribe(users => this.surveys = users));
     }
 
 }

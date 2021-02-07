@@ -3,16 +3,14 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AlertService } from '@services/index';
-
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private alertService: AlertService) {}
+    constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
             const error = err.error?.message || err.statusText;
-            this.alertService.error(error);
+            //We can show the error in the console and any custom error to user by using an alert
             console.error(err);
             return throwError(error);
         }))

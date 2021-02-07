@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+// used to create fake backend
+import { fakeBackendProvider, ErrorInterceptor } from 'apphelpers';
 
 import { ReactiveFormsModule } from '@angular/forms';
-// used to create fake backend
-import { fakeBackendProvider, ErrorInterceptor } from '@helpers/index';
+
 import { AppComponent } from './app.component';
-import { AlertComponent } from '@shared/alert';
 import { HeaderComponent } from '@shared/header';
 import { SurveyComponent } from '@app/survey/survey.component';
 import { QuestionsModule } from '@app/survey/survey.module';
@@ -25,7 +25,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ],
     declarations: [
         AppComponent,
-        AlertComponent,
         HeaderComponent,
         SurveyComponent
     ],

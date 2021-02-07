@@ -1,8 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
-import { QuestionType, Survey, Question, SQOption } from '@models/index';
+import { QuestionType, Survey, Question, SQOption } from 'appmodels';
 
 let sqOptions: SQOption[] = [
     {
@@ -119,18 +119,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             switch (true) {
                 case url.endsWith('/surveys') && method === 'GET':
                     return getSurveys();
-                case url.match(/\/surveys\/\d+$/) && method === 'GET':
-                    return getSurveyById();
-                // case url.endsWith('/questions') && method === 'GET':
-                //     return getSurveys();
+                // case url.match(/\/surveys\/\d+$/) && method === 'GET':
+                //     return getSurveyById();
                 case url.match(/\/questions\/\d+$/) && method === 'GET':
                     return getQuestionsBySurveyId();
-                // case url.endsWith('/users') && method === 'POST':
-                //     return createUser();
-                // case url.match(/\/users\/\d+$/) && method === 'PUT':
-                //     return updateUser();
-                // case url.match(/\/users\/\d+$/) && method === 'DELETE':
-                //     return deleteUser();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -139,36 +131,35 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // route functions
         function getSurveys() {
-            return ok(surveys);
+            let _survey = new BehaviorSubject<Survey[]>([]);
+            _survey.next(surveys);
+            return ok(_survey.asObservable());
         }
 
-        function getSurveyById() {
-            let survey = surveys.find(x => x.id === idFromUrl());
-            return ok(survey);
-        }
+        // function getSurveyById() {
+        //     let survey = surveys.find(x => x.id === idFromUrl());
+        //     return ok(survey);
+        // }
 
         function getQuestionsBySurveyId() {
             let questionList = questions.filter(x => x.surveyId === idFromUrl());
             questionList.forEach(q => {
                 q.sqOptions = sqOptions.filter(x => x.questionId === q.id);
             });
-            return ok(questionList);
+            let _question = new BehaviorSubject<Question[]>([]);
+            _question.next(questionList);
+            return ok(_question.asObservable());
         }
 
         // helper functions
         function ok(body?: any) {
             return of(new HttpResponse({ status: 200, body }))
-                .pipe(delay(500)); // delay observable to simulate server api call
+                .pipe(delay(200)); // delay observable to simulate server api call
         }
 
         function error(message: any) {
             return throwError({ error: { message } })
-                .pipe(materialize(), delay(500), dematerialize()); // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648);
-        }
-
-        function basicDetails(survey: any) {
-            const { id, name } = survey;
-            return { id, name };
+                .pipe(materialize(), delay(200), dematerialize()); // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648);
         }
 
         function idFromUrl() {

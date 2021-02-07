@@ -2,7 +2,8 @@
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { Survey } from '@models/index';
+import { Survey } from 'appmodels';
+import { Observable } from 'rxjs';
 
 const baseUrl = `${environment.surveyApiUrl}`;
 
@@ -11,12 +12,12 @@ export class SurveyService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Survey[]>(baseUrl);
+        return this.http.get<Observable<Survey[]>>(baseUrl);
     }
 
-    getById(id: string) {
-        return this.http.get<Survey>(`${baseUrl}/${id}`);
-    }
+    // getById(id: string) {
+    //     return this.http.get<Survey>(`${baseUrl}/${id}`);
+    // }
 
     
 }

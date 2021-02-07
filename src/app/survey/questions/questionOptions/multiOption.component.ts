@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from '@angular/core';
-import { SQOption } from '@app/_models';
+import { SQOption } from 'appmodels';
 
 @Component(
     {
@@ -12,9 +12,4 @@ export class MultiOptionComponent {
     @Input()
     set selectedOption(selected: SQOption) { this.sqOption = selected; }
     get selectedOption(): SQOption { return this.sqOption; }
-
-    //constructor() { }
-
-
-
 }

@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class HeaderTitleService {
-    title = new BehaviorSubject('Initial Title');
+    title = new BehaviorSubject('Surveys Page');
 
     setTitle(title: string) {
         this.title.next(title);
