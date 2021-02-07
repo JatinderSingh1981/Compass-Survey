@@ -4,7 +4,7 @@
     <h4>Compass Surveys</h4>
     <div *ngFor="let survey of surveys | async">
         <div class="py-2">
-            <a routerLink="/{{survey.id}}/{{survey.name}}" class="btn w-100 btn-secondary mr-1">{{survey.name}} </a>
+            <a routerLink="/{{survey.id}}/{{survey.surveyTitle}}" class="btn w-100 btn-secondary mr-1">{{survey.surveyTitle}} </a>
         </div>
     </div>
     <div *ngIf="!surveys" class="text-center">

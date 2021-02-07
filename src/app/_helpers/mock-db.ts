@@ -4,38 +4,38 @@ export const sqOptions: SQOption[] = [
     {
         id: 1,
         questionId: 53,
-        text: "1",
+        optionTitle: "1",
         //isSelected: false
     },
     {
         id: 2,
         questionId: 53,
-        text: "3",
+        optionTitle: "3",
         //isSelected: false
     },
     {
         id: 3,
         questionId: 53,
-        text: "18",
+        optionTitle: "18",
         //isSelected: false
     },
 
     {
         id: 4,
         questionId: 72,
-        text: "one",
+        optionTitle: "one",
         //isSelected: false
     },
     {
         id: 5,
         questionId: 72,
-        text: "two",
+        optionTitle: "two",
         //isSelected: false
     },
     {
         id: 6,
         questionId: 72,
-        text: "Three thousand three hundred eighty-seven",
+        optionTitle: "Three thousand three hundred eighty-seven",
         //isSelected: false
     },
 
@@ -43,19 +43,19 @@ export const sqOptions: SQOption[] = [
     {
         id: 7,
         questionId: 34,
-        text: "10°",
+        optionTitle: "10°",
         //isSelected: false
     },
     {
         id: 8,
         questionId: 34,
-        text: "20°",
+        optionTitle: "20°",
         //isSelected: false
     },
     {
         id: 9,
         questionId: 34,
-        text: "30°",
+        optionTitle: "30°",
         //isSelected: false
     }
 ]
@@ -90,10 +90,10 @@ export const questions: Question[] = [
 export const surveys: Survey[] = [
     {
         id: 1,
-        name: "Survey 1",
+        surveyTitle: "Survey 1",
     },
     {
         id: 2,
-        name: "Survey 2",
+        surveyTitle: "Survey 2",
     }
 ];
