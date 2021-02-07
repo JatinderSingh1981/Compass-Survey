@@ -3,7 +3,7 @@ import { SQOption } from '@appmodels';
 
 @Component(
     {
-        selector: 'multiOption-component',
+        selector: 'app-multiOption',
         templateUrl: 'multiOption.component.html'
     })
 export class MultiOptionComponent {

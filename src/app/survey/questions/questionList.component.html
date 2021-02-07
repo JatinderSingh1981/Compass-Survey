@@ -2,10 +2,10 @@
     <h4>{{name}}</h4>
     <div *ngFor="let question of questions | async; let i=index;">
         <div class="border border-dark rounded my-4">
-            <question-component [selectedQuestion]="question" [title]="'Question '+(i+1)"></question-component>
+            <app-question [selectedQuestion]="question" [title]="'Question '+(i+1)"></app-question>
             <div *ngFor="let opt of question.sqOptions">
                 <div class="p-2" *ngIf="question.questionType === QuestionTypeEnum.MultipleChoice">
-                    <multiOption-component [selectedOption]="opt"></multiOption-component>
+                    <app-multiOption [selectedOption]="opt"></app-multiOption>
                 </div>
             </div>
         </div>

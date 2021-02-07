@@ -2,7 +2,7 @@
 import { Question } from '@appmodels';
 
 @Component({
-    selector: 'question-component',
+    selector: 'app-question',
     templateUrl: 'question.component.html'
 })
 export class QuestionComponent {

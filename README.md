@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
 
 ## Fake backend API with READ routes
-The example app runs with a fake backend api by default to enable it to run completely in the browser without a real api (The real api can be added quickly), 
+The example app runs with a fake backend api by default to enable it to run completely in the browser without a real api, 
 the fake api contains routes for Survey, Questions and Answers Read operations and it uses fake-db.ts to get data. 
 To disable the fake backend you just have to remove fake backend provider from the app.module.ts file
 
