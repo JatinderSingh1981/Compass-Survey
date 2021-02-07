@@ -1,4 +1,4 @@
-import { Question, QuestionType, SQOption, Survey } from "appmodels";
+import { Question, QuestionType, SQOption, Survey } from "@appmodels";
 
 export const sqOptions: SQOption[] = [
     {

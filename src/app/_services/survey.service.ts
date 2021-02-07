@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { Survey } from 'appmodels';
+import { Survey } from '@appmodels';
 import { Observable } from 'rxjs';
 
 const baseUrl = `${environment.surveyApiUrl}`;

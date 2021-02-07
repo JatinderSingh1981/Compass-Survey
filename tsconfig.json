@@ -21,20 +21,20 @@
       "dom"
     ],
     "paths": {
-      "appmodels": [
+      "@appmodels": [
         "src/app/_models/index"
       ],
-      "appservices": [
+      "@appservices": [
         "src/app/_services/index"
       ],
-      "apphelpers": [
+      "@apphelpers": [
         "src/app/_helpers/index"
       ],
       "@app/*": [
         "src/app/*"
       ],
       "@shared/*": [
-        "src/app/shared/*"
+        "src/app/_shared/*"
       ],
       "@environments/*": [
         "src/environments/*"

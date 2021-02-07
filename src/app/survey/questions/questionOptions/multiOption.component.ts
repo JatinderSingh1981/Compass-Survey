@@ -1,5 +1,5 @@
 ﻿import { Component, Input } from '@angular/core';
-import { SQOption } from 'appmodels';
+import { SQOption } from '@appmodels';
 
 @Component(
     {

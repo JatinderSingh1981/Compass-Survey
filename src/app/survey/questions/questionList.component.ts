@@ -1,8 +1,8 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { HeaderTitleService, QuestionService } from 'appservices';
-import { Question, QuestionType } from 'appmodels';
+import { HeaderTitleService, QuestionService } from '@appservices';
+import { Question, QuestionType } from '@appmodels';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 

@@ -1,5 +1,5 @@
 ﻿import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { HeaderTitleService } from 'appservices';
+import { HeaderTitleService } from '@appservices';
 import { Subscription } from 'rxjs';
 
 @Component({ selector: 'app-header', templateUrl: 'header.component.html' })

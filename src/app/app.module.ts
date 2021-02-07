@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // used to create fake backend
-import { fakeBackendProvider, ErrorInterceptor } from 'apphelpers';
+import { fakeBackendProvider, ErrorInterceptor } from '@apphelpers';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 

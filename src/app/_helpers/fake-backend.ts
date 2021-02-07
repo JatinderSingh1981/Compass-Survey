@@ -2,7 +2,7 @@
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { delay, materialize, dematerialize } from 'rxjs/operators';
-import { Survey, Question } from 'appmodels';
+import { Survey, Question } from '@appmodels';
 import { questions, sqOptions, surveys } from './fake-db';
 
 @Injectable()

@@ -1,7 +1,7 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
-import { HeaderTitleService, SurveyService } from 'appservices';
-import { Survey } from 'appmodels';
+import { HeaderTitleService, SurveyService } from '@appservices';
+import { Survey } from '@appmodels';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({ templateUrl: 'survey.component.html' })
