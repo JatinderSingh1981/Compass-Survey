@@ -16,6 +16,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
   }
 
+  //Instead of using the publisher and subscriber method, 
+  //I can simply use promise which gives me result just 1 time and that's it. 
+  //No overhead of maintaining the subscription and worry about memory leaks
   ngOnDestroy() {
     // unsubscribe to avoid memory leaks
     this.titleSubscription.unsubscribe();

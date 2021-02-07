@@ -3,12 +3,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-// import { HeaderComponent } from '@shared/header';
 import { QuestionComponent } from './questions/question.component';
 import { QuestionListComponent } from './questions/questionList.component';
 import { MultiOptionComponent } from './questions/questionOptions/multiOption.component';
 
-//import { QuestionsRoutingModule } from './questions-routing.module';
+import { SurveyRoutingModule } from './survey-routing.module';
 
 @NgModule({
     imports: [
@@ -16,13 +15,12 @@ import { MultiOptionComponent } from './questions/questionOptions/multiOption.co
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        //QuestionsRoutingModule
+        SurveyRoutingModule
     ],
     declarations: [
-        // HeaderComponent,
         QuestionComponent,
         QuestionListComponent,
         MultiOptionComponent
     ]
 })
-export class QuestionsModule { }
+export class SurveyModule { }

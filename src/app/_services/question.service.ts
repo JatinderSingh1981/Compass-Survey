@@ -1,6 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { environment } from '@environments/environment';
 import { Question } from 'appmodels';
 import { Observable } from 'rxjs';
@@ -14,6 +13,4 @@ export class QuestionService {
     getQuestionListBySurveyId(id: number) {
         return this.http.get<Observable<Question[]>>(`${baseUrl}/${id}`);
     }
-
-    
 }

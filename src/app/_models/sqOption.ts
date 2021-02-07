@@ -3,6 +3,7 @@ export class SQOption {
         public id: number,
         public questionId: number,
         public text: string,
-        public isSelected: boolean,
+        //Added the following field for testing purposes
+        //public isSelected: boolean,
     ) { }
 }

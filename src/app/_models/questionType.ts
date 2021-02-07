@@ -5,14 +5,3 @@ export enum QuestionType {
     MultipleChoice, //Give multiple select checkbox
     SingleChoice, //Give Radio button option
 }
-
-// enum Type {
-//     NEW,
-//     OLD,
-// }
-
-// interface Thing { qType: QuestionType }
-
-// let thing:Thing = JSON.parse('{"type": 0}');
-
-// thing.qType
